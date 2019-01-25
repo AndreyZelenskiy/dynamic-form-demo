@@ -1,11 +1,13 @@
 import {DynamicFormConfig} from '../dynamic-form.config';
 import {DynamicFormValidator} from '../validators';
+import {FormGroup, NgForm} from '@angular/forms';
 
 export abstract class FormControlConfig<T> extends DynamicFormConfig {
   readonly validators: DynamicFormValidator[];
   readonly disabled: boolean;
   readonly id: string | null;
   readonly hint: string | null;
+  parentForm: FormGroup;
 
   protected constructor(public readonly name: string, public readonly value: T, args: Partial<FormControlConfigOptionalArgs> = {}) {
     super();

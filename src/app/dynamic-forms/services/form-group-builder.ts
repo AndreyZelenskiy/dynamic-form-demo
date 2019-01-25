@@ -10,7 +10,7 @@ export function buildFormGroup(config: FormGroupConfig): FormGroup {
 }
 
 export function buildFormControl<T>(config: FormControlConfig<T>): FormControl {
-  const control = new FormControl(config.value);
+  const control = new FormControl({value: config.value, disabled: config.disabled});
   buildValidators(control, config.validators);
   buildErrors(control, config.validators);
   return control;
@@ -18,10 +18,13 @@ export function buildFormControl<T>(config: FormControlConfig<T>): FormControl {
 
 function buildFormGroupControls(group: FormGroup, config: FormGroupConfig): void {
   const formControlChildren = config.children.filter(isFormControlConfig);
-  formControlChildren.map(control => ({
-    name: control.name,
-    control: buildFormControl(control)
-  })).forEach(v => group.addControl(v.name, v.control));
+  formControlChildren.map(control => {
+    control.parentForm = group;
+    return {
+      name: control.name,
+      control: buildFormControl(control)
+    };
+  }).forEach(v => group.addControl(v.name, v.control));
 }
 
 

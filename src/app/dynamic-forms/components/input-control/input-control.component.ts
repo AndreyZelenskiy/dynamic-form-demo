@@ -19,12 +19,10 @@ export class InputControlComponent implements ConfigurableFormControlComponent<s
   @Input() config: InputConfig | null;
   onChange: (value: string) => void;
   onTouched: () => void;
-  isDisabled: boolean;
   value: string;
 
   ngOnInit() {
     this.value = this.config.value;
-    this.isDisabled = this.config.disabled;
   }
 
   change(event: any): void {
@@ -43,7 +41,8 @@ export class InputControlComponent implements ConfigurableFormControlComponent<s
   }
 
   setDisabledState(isDisabled: boolean): void {
-    this.isDisabled = isDisabled;
+    const formField = this.config.parentForm.get(this.config.name);
+    isDisabled ? formField.enable() : formField.disable();
   }
 
   writeValue(obj: string): void {

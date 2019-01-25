@@ -1,9 +1,9 @@
-<!--<ng-container *ngIf="config">-->
+<div [formGroup]="config.parentForm">
   <input type="text"
+         [formControlName]="config.name"
          [id]="config.id || config.name"
          [value]="value"
-         [disabled]="isDisabled"
          [placeholder]="config.placeholder"
          (keyup)="change($event)">
   <label [for]="config.id || config.name" *ngIf="config.label !== null">{{config.label}}</label>
-<!--</ng-container>-->
+</div>

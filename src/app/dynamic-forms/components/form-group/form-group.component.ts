@@ -26,8 +26,9 @@ export class FormGroupComponent implements ConfigurableFormGroupComponent, OnIni
   @Input() config: FormGroupConfig;
   @Output() statusChange: Observable<FormStatus>;
   @Output() valueChange: Observable<any>;
+
+  @ViewChild('form') form: FormGroup;
   @ViewChildren('formField', {read: ViewContainerRef}) fields: QueryList<ViewContainerRef>;
-  form: FormGroup;
 
   constructor(private factory: FormControlComponentFactory, private detector: ChangeDetectorRef) {
   }
@@ -35,6 +36,10 @@ export class FormGroupComponent implements ConfigurableFormGroupComponent, OnIni
   ngOnInit(): void {
     this.form = buildFormGroup(this.config);
     console.log(this.form);
+    this.form.valueChanges.subscribe(
+      (change: any) => {
+          console.log('formChange', change);
+      });
   }
 
   ngAfterViewInit(): void {

@@ -12,7 +12,7 @@ export class AppComponent {
   config: FormGroupConfig;
 
   constructor() {
-    const test = new InputConfig('test-input', this.title, {placeholder: 'Test', label: 'Test label'});
+    const test = new InputConfig('test-input', this.title, {placeholder: 'Test', label: 'Test label', disabled: true});
     const secondTest = new InputConfig('second-test-input', '');
     this.config = new FormGroupConfig([test, secondTest]);
   }
