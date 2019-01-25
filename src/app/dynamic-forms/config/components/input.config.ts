@@ -2,7 +2,7 @@ import {FormControlConfig, FormControlConfigOptionalArgs} from './form-control.c
 import {ComponentType} from '../component.type';
 
 export class InputConfig extends FormControlConfig<string> {
-  readonly component = ComponentType.INPUT;
+  readonly component: ComponentType = ComponentType.INPUT;
   readonly placeholder: string | null;
   readonly label: string | null;
 
