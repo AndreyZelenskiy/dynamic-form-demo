@@ -1,0 +1,9 @@
+<!--<ng-container *ngIf="config">-->
+  <input type="text"
+         [id]="config.id || config.name"
+         [value]="value"
+         [disabled]="isDisabled"
+         [placeholder]="config.placeholder"
+         (keyup)="change($event)">
+  <label [for]="config.id || config.name" *ngIf="config.label !== null">{{config.label}}</label>
+<!--</ng-container>-->
