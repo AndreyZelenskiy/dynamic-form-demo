@@ -5,16 +5,18 @@ import {InputControlComponent} from './components/input-control/input-control.co
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DynamicFormControlDirective } from './directives/dynamic-form-control.directive';
+import { TextareaControlComponent } from './components/textarea-control/textarea-control.component';
 
 @NgModule({
   declarations: [
     FormGroupComponent,
     InputControlComponent,
-    DynamicFormControlDirective
+    DynamicFormControlDirective,
+    TextareaControlComponent
   ],
   exports: [
-    InputControlComponent,
-    FormGroupComponent],
+    FormGroupComponent,
+  ],
   imports: [
     CommonModule,
     BrowserModule,
@@ -22,7 +24,7 @@ import { DynamicFormControlDirective } from './directives/dynamic-form-control.d
     ReactiveFormsModule
   ],
   providers: [],
-  entryComponents: [FormGroupComponent, InputControlComponent]
+  entryComponents: [FormGroupComponent, InputControlComponent, TextareaControlComponent]
 })
 export class DynamicFormsModule {
 }

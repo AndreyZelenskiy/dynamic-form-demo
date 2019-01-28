@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {InputConfig} from './dynamic-forms/config/components';
+import {InputConfig, TextareaConfig} from './dynamic-forms/config/components';
 import {FormGroupConfig} from './dynamic-forms/config/groups';
 import {SyncValidator} from './dynamic-forms/config/validators';
 import {Validators} from '@angular/forms';
@@ -20,6 +20,13 @@ export class AppComponent {
     ];
     const test = new InputConfig('test-input', this.title, {placeholder: 'Test', label: 'Test label', validators});
     const secondTest = new InputConfig('second-test-input', '');
-    this.config = new FormGroupConfig([test, secondTest]);
+    const testTextarea = new TextareaConfig('test-textarea', 'Test text', {
+      id: 'test',
+      placeholder: 'Test placeholder',
+      columns: 150,
+      rows: 5,
+      label: 'Test'
+    });
+    this.config = new FormGroupConfig([test, secondTest, testTextarea]);
   }
 }
