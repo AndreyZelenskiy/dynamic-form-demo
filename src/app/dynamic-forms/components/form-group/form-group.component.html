@@ -1,6 +1,6 @@
-<div class="form-group-container">
-  <div class="form-field-container" *ngFor="let config of config.children">
-    <ng-template #formField>
+<div class="form-group-container" [formGroup]="form">
+  <div class="form-field-container" *ngFor="let child of config.children">
+    <ng-template appDynamicFormControl [config]="child" [form]="form.controls[child.name]">
     </ng-template>
   </div>
 </div>
