@@ -20,5 +20,6 @@ export class FormGroupComponent implements ConfigurableFormGroupComponent, OnIni
   ngOnInit(): void {
     this.form = buildFormGroup(this.config);
     this.form.valueChanges.subscribe(e => console.log(e));
+    this.form.statusChanges.subscribe(e => console.log(e));
   }
 }
