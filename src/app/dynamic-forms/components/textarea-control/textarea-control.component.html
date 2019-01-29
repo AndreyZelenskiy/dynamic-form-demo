@@ -1,3 +1,11 @@
-<label [for]="config.id" *ngIf="config.label !== null">{{config.label}}</label>
-<textarea [name]="config.name" [id]="config.id" [cols]="config.columns" [rows]="config.rows" [value]="value"
-          (keyup)="change($event)"></textarea>
+<div class="form-group">
+  <label [for]="config.id" *ngIf="config.label !== null">{{config.label}}</label>
+  <textarea
+    class="form-control"
+    [name]="config.name"
+    [id]="config.id"
+    [cols]="config.columns"
+    [rows]="config.rows"
+    [value]="value"
+    (keyup)="change($event)"></textarea>
+</div>

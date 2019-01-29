@@ -1,8 +1,7 @@
 import {Component} from '@angular/core';
 import {InputConfig, TextareaConfig} from './dynamic-forms/config/components';
 import {FormGroupConfig} from './dynamic-forms/config/groups';
-import {SyncValidator} from './dynamic-forms/config/validators';
-import {Validators} from '@angular/forms';
+import {ValidatorFactory, ValidatorType} from './dynamic-forms/config/validators';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +14,8 @@ export class AppComponent {
 
   constructor() {
     const validators = [
-      new SyncValidator(Validators.required, 'required', 'Please provide a value'),
-      new SyncValidator(Validators.maxLength(12), 'maxLength', 'Please enter a string less that 12 symbols')
+      ValidatorFactory.syncValidator(ValidatorType.REQUIRED),
+      ValidatorFactory.syncValidator(ValidatorType.MAX_LENGTH, {maxLength: 12})
     ];
     const test = new InputConfig('test-input', this.title, {placeholder: 'Test', label: 'Test label', validators});
     const secondTest = new InputConfig('second-test-input', '');
