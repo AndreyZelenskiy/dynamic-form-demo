@@ -1,5 +1,5 @@
-import {DynamicFormConfig} from '../dynamic-form.config';
-import {DynamicFormValidator} from '../validators';
+import {DynamicFormConfig} from '../../dynamic-form.config';
+import {DynamicFormValidator} from '../../validators';
 
 export abstract class FormControlConfig<T> extends DynamicFormConfig {
   readonly validators: DynamicFormValidator[];

@@ -1,4 +1,4 @@
-import {ComponentType} from '../component.type';
+import {ComponentType} from '../../component.type';
 import {InputConfig, InputConfigOptionalParams} from './input.config';
 
 export class TextareaConfig extends InputConfig {

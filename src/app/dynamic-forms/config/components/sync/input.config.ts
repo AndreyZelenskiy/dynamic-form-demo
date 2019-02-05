@@ -1,5 +1,5 @@
 import {FormControlConfig, FormControlConfigOptionalArgs} from './form-control.config';
-import {ComponentType} from '../component.type';
+import {ComponentType} from '../../component.type';
 
 export class InputConfig extends FormControlConfig<string> {
   readonly component: ComponentType = ComponentType.INPUT;

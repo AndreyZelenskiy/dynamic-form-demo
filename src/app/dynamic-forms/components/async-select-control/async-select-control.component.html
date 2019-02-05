@@ -1,0 +1,17 @@
+<ng-container *ngIf="status === AsyncFormControlStatus.PENDING then loading; else select;"></ng-container>
+
+<ng-template #loading>
+  <div class="text-center">
+    <div class="spinner-grow" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</ng-template>
+<ng-template #select>
+  <div class="form-group">
+    <label [for]="config.id || config.name" *ngIf="config.label">{{config.label}}</label>
+    <select [name]="config.name" [id]="config.id || config.name" class="form-control" (change)="change($event)">
+      <option *ngFor="let country of list">{{country.label}}</option>
+    </select>
+  </div>
+</ng-template>

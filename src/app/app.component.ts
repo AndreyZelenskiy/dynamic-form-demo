@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {InputConfig, TextareaConfig} from './dynamic-forms/config/components';
 import {FormGroupConfig} from './dynamic-forms/config/groups';
 import {ValidatorFactory, ValidatorType} from './dynamic-forms/config/validators';
+import {AsyncSelectControlConfig} from './dynamic-forms/config/components/async/async-select-control.config';
+import {Mapper} from './dynamic-forms/services/mapper-factory';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +28,11 @@ export class AppComponent {
       rows: 5,
       label: 'Test'
     });
-    this.config = new FormGroupConfig([test, secondTest, testTextarea]);
+    const countrySelectConfig = new AsyncSelectControlConfig<any>('countries', 'https://restcountries.eu/rest/v2/all', Mapper.Country);
+    this.config = new FormGroupConfig([test, secondTest, testTextarea, countrySelectConfig]);
+  }
+
+  valueChange(e) {
+    console.log(e);
   }
 }

@@ -6,13 +6,16 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DynamicFormControlDirective } from './directives/dynamic-form-control.directive';
 import { TextareaControlComponent } from './components/textarea-control/textarea-control.component';
+import { AsyncSelectControlComponent } from './components/async-select-control/async-select-control.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     FormGroupComponent,
     InputControlComponent,
     DynamicFormControlDirective,
-    TextareaControlComponent
+    TextareaControlComponent,
+    AsyncSelectControlComponent
   ],
   exports: [
     FormGroupComponent,
@@ -21,10 +24,11 @@ import { TextareaControlComponent } from './components/textarea-control/textarea
     CommonModule,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
-  entryComponents: [FormGroupComponent, InputControlComponent, TextareaControlComponent]
+  entryComponents: [FormGroupComponent, InputControlComponent, TextareaControlComponent, AsyncSelectControlComponent]
 })
 export class DynamicFormsModule {
 }
